@@ -1,0 +1,36 @@
+.status {
+  --status-color: var(--color-local);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  color: var(--status-color);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status__marker {
+  width: 0.6em;
+  height: 0.6em;
+  border: 2px solid var(--status-color);
+  border-radius: 50%;
+}
+
+/* Filled dot for live: something you can open right now. */
+.status--live {
+  --status-color: var(--color-live);
+}
+.status--live .status__marker {
+  background: var(--status-color);
+}
+
+.status--in-development {
+  --status-color: var(--color-dev);
+}
+
+.status--experimental {
+  --status-color: var(--color-experimental);
+}
+.status--experimental .status__marker {
+  border-style: dashed;
+}

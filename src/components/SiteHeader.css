@@ -1,0 +1,75 @@
+.site-header {
+  border-bottom: 1px solid var(--color-rule);
+  background: var(--color-paper);
+}
+
+/* Mobile first: name on its own row, then the three links in equal columns. */
+.site-header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+}
+
+.site-header__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 3px solid transparent;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+.site-nav__link:hover {
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom-color: var(--color-rule);
+}
+
+/* The current page, marked by NavLink with aria-current="page". */
+.site-nav__link[aria-current='page'] {
+  color: var(--color-ink);
+  font-weight: 600;
+  border-bottom-color: var(--color-pen);
+}
+
+/* Wider screens: name on the left, links on the right, one row. */
+@media (min-width: 48rem) {
+  .site-header__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: var(--space-5);
+  }
+
+  .site-nav__link {
+    font-size: var(--text-base);
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,42 @@
+.linkedin-qr {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  max-width: 24rem;
+}
+
+.linkedin-qr__code {
+  flex: none;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 4px;
+}
+
+.linkedin-qr__heading {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+}
+
+.linkedin-qr__text {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 60rem) {
+  /* Big enough to scan comfortably from a laptop screen. */
+  .linkedin-qr {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 15rem;
+  }
+
+  .linkedin-qr__code {
+    width: 9rem;
+    height: 9rem;
+  }
+}

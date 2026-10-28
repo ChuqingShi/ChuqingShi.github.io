@@ -1,0 +1,83 @@
+/*
+  Design tokens: every color, font and size the site uses, defined once.
+  Components refer to these names (var(--color-ink)) instead of raw values,
+  so changing the palette means editing this file only.
+
+  Concept: ink on graph paper. A mathematician's notebook, where the journey
+  is plotted as a line and the accent is fountain-pen blue.
+*/
+
+:root {
+  /* Color (light) */
+  --color-paper: #f5f7f7; /* page background: cool, slightly grey white */
+  --color-surface: #ffffff; /* raised areas: QR card, code blocks */
+  --color-ink: #17212b; /* main text */
+  --color-ink-soft: #4a5a66; /* secondary text; 6.6:1 on paper */
+  --color-pen: #2c44c2; /* accent: links, timeline ink, focus ring */
+  --color-pen-strong: #1e3299; /* hover */
+  --color-pen-tint: #e4e9fa; /* soft accent backgrounds */
+  --color-rule: #d3dbe0; /* borders and the un-inked timeline */
+  --color-grid: rgb(44 68 194 / 0.07); /* graph-paper lines */
+
+  --color-live: #1d7a4c;
+  --color-local: #4a5a66;
+  --color-dev: #935500;
+  --color-experimental: #6a47b0;
+
+  /* Type */
+  --font-serif: 'STIX Two Text', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Atkinson Hyperlegible Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* A 1.25 ("major third") type scale */
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.953rem;
+  --text-2xl: clamp(2.25rem, 6.5vw, 3.6rem);
+
+  /* Spacing and layout */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --gutter: 1rem;
+  --page-width: 68rem;
+  --text-width: 38rem; /* keeps lines under ~75 characters */
+  --radius: 6px;
+
+  color-scheme: light;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+/* Dark mode: ink turns to chalk on a blue-slate board. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #13202b;
+    --color-surface: #1a2a36;
+    --color-ink: #e6edf1;
+    --color-ink-soft: #a9b8c3;
+    --color-pen: #9fb2ff;
+    --color-pen-strong: #c3cfff;
+    --color-pen-tint: #22335a;
+    --color-rule: #2d3f4d;
+    --color-grid: rgb(159 178 255 / 0.06);
+
+    --color-live: #6fd3a0;
+    --color-local: #a9b8c3;
+    --color-dev: #f0b466;
+    --color-experimental: #c6b0f5;
+
+    color-scheme: dark;
+  }
+}

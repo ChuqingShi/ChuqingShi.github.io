@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- A plotted line on graph paper: the journey, starting from a point. -->
+  <rect width="32" height="32" rx="6" fill="#f5f7f7"/>
+  <path d="M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32" stroke="#2c44c2" stroke-opacity=".15" stroke-width="1"/>
+  <path d="M7 25 C 13 24, 15 10, 25 7" fill="none" stroke="#2c44c2" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="7" cy="25" r="3.5" fill="#2c44c2"/>
+  <circle cx="25" cy="7" r="3.5" fill="#f5f7f7" stroke="#2c44c2" stroke-width="2.5"/>
+</svg>

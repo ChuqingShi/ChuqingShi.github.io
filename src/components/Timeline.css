@@ -1,0 +1,182 @@
+/*
+  The timeline: an ordered list with a vertical line on its left.
+
+    ::before  the grey track, full height
+    ::after   the inked part, scaled from 0 to 1 by --progress
+              (set from JavaScript in src/hooks/useTimelineProgress.ts)
+*/
+
+.timeline {
+  --spine-x: 0.65rem; /* where the line sits, from the list's left edge */
+  --indent: 2.5rem; /* how far the cards sit to the right of the line */
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 var(--indent);
+  list-style: none;
+}
+
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: var(--spine-x);
+  top: 0.6rem;
+  bottom: 0;
+  width: 2px;
+  border-radius: 1px;
+}
+
+.timeline::before {
+  background: var(--color-rule);
+}
+
+.timeline::after {
+  background: var(--color-pen);
+  transform-origin: top;
+  transform: scaleY(var(--progress, 0));
+}
+
+.milestone {
+  position: relative;
+  padding-bottom: var(--space-6);
+}
+
+.milestone:last-child {
+  padding-bottom: 0;
+}
+
+/* The dot sits on the line, level with the date. */
+.milestone__dot {
+  position: absolute;
+  z-index: 1;
+  top: 1.05rem;
+  left: calc(var(--spine-x) - var(--indent) + 1px - 0.5rem);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--color-rule);
+  border-radius: 50%;
+  background: var(--color-paper);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.milestone[data-reached='true'] .milestone__dot {
+  border-color: var(--color-pen);
+  background: var(--color-pen);
+}
+
+.milestone__card {
+  max-width: 42rem;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.milestone__date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-1);
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-variant-numeric: lining-nums;
+  color: var(--color-pen);
+}
+
+.milestone__confirm {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-ink-soft);
+  border-bottom: 1.5px dashed var(--color-pen);
+}
+
+.milestone__title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.milestone__summary {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.milestone__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-pen);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.milestone__toggle:hover {
+  color: var(--color-pen-strong);
+}
+
+/* Underline only the words on hover, not the +/− icon. */
+.milestone__toggle:hover .milestone__toggle-label {
+  text-decoration: underline;
+}
+
+.milestone__toggle-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Opening a card: the story fades in from just above, showing what changed. */
+.milestone__panel:not([hidden]) {
+  padding-top: var(--space-2);
+  animation: milestone-open 220ms ease-out;
+}
+
+@keyframes milestone-open {
+  from {
+    opacity: 0;
+    transform: translateY(-0.4rem);
+  }
+}
+
+.milestone__highlights {
+  padding-left: 1.2rem;
+}
+
+.milestone__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding: 0;
+  margin: 0 0 var(--space-2);
+  list-style: none;
+}
+
+.milestone__links a,
+.milestone__links button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+@media (min-width: 48rem) {
+  .timeline {
+    --spine-x: 1rem;
+    --indent: 3.5rem;
+  }
+
+  .milestone__card {
+    padding: var(--space-5) var(--space-5) var(--space-4);
+  }
+}

@@ -1,0 +1,122 @@
+.human-section {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* The path: three steps joined by a line, like points on the same curve. */
+.path {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-5) 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.path__step {
+  position: relative;
+  padding-left: var(--space-6);
+  max-width: var(--text-width);
+}
+
+.path__step::before {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.4rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--color-pen);
+}
+
+/* The connecting line, from each dot down to the next one. */
+.path__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(0.25rem + 0.425rem - 1px);
+  top: 1.25rem;
+  bottom: calc(-1 * var(--space-5));
+  width: 2px;
+  background: var(--color-pen);
+}
+
+.path__step p {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 48rem) {
+  .path {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .path__step {
+    padding: var(--space-6) var(--space-4) 0 0;
+  }
+
+  .path__step::before {
+    left: 0;
+    top: 0;
+  }
+
+  .path__step:not(:last-child)::after {
+    left: 0.85rem;
+    right: calc(-1 * var(--space-5));
+    top: calc(0.425rem - 1px);
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+}
+
+.interests {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.interest__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-3);
+}
+
+.interest__photo--empty {
+  display: grid;
+  place-items: center;
+  border: 1.5px dashed var(--color-pen);
+  background: var(--color-pen-tint);
+  color: var(--color-pen);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.interest h3 {
+  margin-bottom: var(--space-1);
+}
+
+.interest > p.muted {
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 22rem) {
+  .interests {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5) var(--space-4);
+  }
+}
+
+@media (min-width: 64rem) {
+  .interests {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contact-links--large {
+  gap: var(--space-4) var(--space-7);
+  font-size: var(--text-md);
+}

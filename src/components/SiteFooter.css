@@ -1,0 +1,56 @@
+.site-footer {
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-rule);
+  padding-block: var(--space-6);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.site-footer__heading {
+  font-size: var(--text-md);
+}
+
+.site-footer__built {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 48rem) {
+  .site-footer__inner {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+/* Shared by the footer and The Human Side. */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links a {
+  display: inline-flex;
+  flex-direction: column;
+  min-height: 2.75rem;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.contact-links__label {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.contact-links__detail {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
