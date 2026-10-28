@@ -1,12 +1,11 @@
 ---
-# Template only: these are prompts for Chuqing, not her words. Replace them with your reflection, then set draft: false.
+# Template only: these are prompts for Chuqing, not her words. Replace them with your reflection, then move this file to src/content/notes/ to publish it.
 title: From proofs to products
 date: 2026-10-27
 type: reflection
 topic: mathematics-research
 tags: [career, research, learning]
 summary: Template for a reflection on moving from mathematical research to data science and AI. Replace with your own summary.
-draft: true
 ---
 
 *This is a template. The prompts below are questions for you to answer in your own words; delete them as you write.*

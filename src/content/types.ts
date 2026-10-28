@@ -104,7 +104,7 @@ export type Note = {
   subtopic?: string
   tags: string[]
   summary: string
-  /** Drafts show up in local development only, never in the production build. */
+  /** True for files in src/content/drafts/: shown by `npm run dev` only, never published. */
   draft: boolean
   /** Project ids this note relates to. */
   projects: string[]

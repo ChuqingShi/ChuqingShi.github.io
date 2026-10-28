@@ -1,5 +1,5 @@
 ---
-# Starter draft written by Claude from this repo's code. Rewrite it in your own voice, then set draft: false.
+# Starter draft written by Claude from this repo's code. Rewrite it in your own voice, then move this file to src/content/notes/ to publish it.
 title: Why this site's URLs have a # in them
 date: 2026-10-27
 type: study-note
@@ -7,7 +7,6 @@ topic: tech-stack
 subtopic: react-typescript
 tags: [routing, github-pages, react-router]
 summary: GitHub Pages only serves files that exist. A hash router keeps every page inside one file, so refreshing never breaks.
-draft: true
 ---
 
 Every page on this site has an address like `chuqingshi.github.io/#/mind`. The `#` looks odd, but it solves a real problem with static hosting.

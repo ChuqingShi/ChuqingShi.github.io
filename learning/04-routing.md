@@ -19,7 +19,7 @@ This site uses React Router's `HashRouter`, so routes live after a `#`:
 
 ## Why here
 
-GitHub Pages only serves files that exist. Without the `#`, refreshing `chuqingshi.github.io/mind` asks the server for a file called `mind`, which does not exist: a 404. The browser never sends the part after `#` to the server, so every request is for `index.html`, and React reads the rest. The starter note `src/content/notes/2026-10-27-why-this-site-uses-a-hash-in-urls.md` explains this in more depth.
+GitHub Pages only serves files that exist. Without the `#`, refreshing `chuqingshi.github.io/mind` asks the server for a file called `mind`, which does not exist: a 404. The browser never sends the part after `#` to the server, so every request is for `index.html`, and React reads the rest. The starter note `src/content/drafts/2026-10-27-why-this-site-uses-a-hash-in-urls.md` explains this in more depth.
 
 ## Find it in code
 

@@ -6,7 +6,6 @@
 //   title: Why this site's URLs have a # in them
 //   date: 2026-10-27
 //   tags: [routing, github-pages]
-//   draft: true
 //   ---
 //   The Markdown body starts here.
 //

@@ -1,12 +1,11 @@
 ---
-# Starter draft written by Claude from the LyricLens README. Add your own findings and voice, then set draft: false.
+# Starter draft written by Claude from the LyricLens README. Add your own findings and voice, then move this file to src/content/notes/ to publish it.
 title: Why LyricLens splits lyrics by section, not by length
 date: 2026-10-27
 type: deep-dive
 topic: llms-ai-agents
 tags: [rag, embeddings, chunking, retrieval]
 summary: In retrieval, a chunk is the unit of meaning the search can find. For song lyrics, the natural unit is a verse or a chorus.
-draft: true
 projects: [lyriclens]
 ---
 

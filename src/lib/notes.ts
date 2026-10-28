@@ -53,10 +53,13 @@ export function parseNote(path: string, source: string): Note {
     throw new NoteError(`${file}: "subtopic" must be text`)
   }
 
-  const draft = data.draft ?? false
-  if (typeof draft !== 'boolean') {
-    throw new NoteError(`${file}: "draft" must be true or false`)
+  // Where the file lives decides whether it is a draft (see src/content/loadNotes.ts).
+  if ('draft' in data) {
+    throw new NoteError(
+      `${file}: remove the "draft" line. Drafts live in src/content/drafts/; move the file to src/content/notes/ to publish it`,
+    )
   }
+  const draft = path.includes('/drafts/')
 
   return {
     slug: slugFromPath(path),

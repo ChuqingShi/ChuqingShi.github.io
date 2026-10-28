@@ -27,7 +27,7 @@ npm run dev        # http://localhost:5173, drafts visible
 
 ## Editing content
 
-All content lives in `src/content/`. Add a note by creating `src/content/notes/YYYY-MM-DD-title.md`; see `learning/06-content.md`.
+All content lives in `src/content/`. Start a note as `src/content/drafts/YYYY-MM-DD-title.md` and move it to `src/content/notes/` to publish it; see `learning/06-content.md`.
 
 ## Learning guides
 

@@ -1,5 +1,5 @@
 ---
-# Starter draft written by Claude. Rewrite it as you learn, then set draft: false.
+# Starter draft written by Claude. Rewrite it as you learn, then move this file to src/content/notes/ to publish it.
 title: Saving a change with Git, step by step
 date: 2026-10-27
 type: study-note
@@ -7,7 +7,6 @@ topic: tech-stack
 subtopic: git
 tags: [git, workflow]
 summary: The four commands behind every change to this site, and what each one actually does.
-draft: true
 ---
 
 Every change to this site follows the same loop. Git can feel like magic, so here is what each step does.

@@ -91,6 +91,15 @@ describe('notes', () => {
     })
   })
 
+  it('marks files in the drafts folder as drafts', () => {
+    expect(parseNote('./drafts/2026-10-27-a-note.md', valid).draft).toBe(true)
+    expect(parseNote('./notes/2026-10-27-a-note.md', valid).draft).toBe(false)
+  })
+
+  it('rejects the old "draft:" line with a pointer to the drafts folder', () => {
+    expect(() => parseNote('x.md', valid.replace('---\nBody', 'draft: true\n---\nBody'))).toThrow(/drafts/)
+  })
+
   it('rejects bad dates, unknown types and missing titles', () => {
     expect(() => parseNote('x.md', valid.replace('2026-10-27', 'Oct 27'))).toThrow(NoteError)
     expect(() => parseNote('x.md', valid.replace('deep-dive', 'essay'))).toThrow(/type/)

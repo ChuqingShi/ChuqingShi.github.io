@@ -33,7 +33,8 @@ src/
     projects.ts             featured projects
     topics.ts               knowledge-garden folders
     human.ts                The Human Side text and interests
-    notes/*.md              the notes themselves (Markdown)
+    notes/*.md              published notes (Markdown)
+    drafts/*.md             draft notes: dev server only, never published
     loadNotes.ts            collects the .md files at build time
     types.ts                the shapes all of the above must follow
     content.test.ts         checks the content for typos and broken references

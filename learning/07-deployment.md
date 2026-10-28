@@ -37,4 +37,4 @@ npm run preview
 
 ## Verify
 
-The preview (usually http://localhost:4173) is the production build: drafts are hidden, and the notes feed shows its empty state until a note has `draft: false`. After the first real deployment, open https://chuqingshi.github.io, refresh on a deep page like `/#/about`, and paste the address into LinkedIn's post composer to see the social preview image (`public/social-preview.png`).
+The preview (usually http://localhost:4173) is the production build: drafts are not included, and the notes feed shows its empty state until a note is in `src/content/notes/`. After the first real deployment, open https://chuqingshi.github.io, refresh on a deep page like `/#/about`, and paste the address into LinkedIn's post composer to see the social preview image (`public/social-preview.png`).

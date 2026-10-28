@@ -45,7 +45,7 @@ Chronological notes from building the site. Times are Hawaii time (HST, UTC−10
 - **Front matter:** an 80-line reader (`src/lib/frontmatter.ts`) instead of `gray-matter`, which targets Node.js and parses far more YAML than the notes use.
 - **QR code:** generated at runtime from `profile.linkedinUrl` with `qrcode`, rendered as one SVG `<path>`, so the code and the link can never disagree.
 - **Code splitting:** note pages load lazily; the landing page's JavaScript went from 154 KB to 105 KB gzipped.
-- **Drafts** are visible only in `npm run dev`. The four starter notes are drafts because they are not Chuqing's words.
+- **Drafts** live in `src/content/drafts/`, visible only in `npm run dev` and absent from the production build. The four starter notes are drafts because they are not Chuqing's words.
 - **Placeholders** (`{ placeholder: '…' }` in `src/content/`) render as visible "To fill in" boxes. Dates derived from GitHub commit history are labelled "from GitHub activity, to confirm".
 - **ApplyPeace is not featured**: it involves H-1B sponsorship, which is personal; left for Chuqing to decide.
 - **Groupz is marked Live** because its README links a deployed app on Render. CaseBoard and LyricLens are marked "Runs locally".
@@ -57,7 +57,8 @@ Chronological notes from building the site. Times are Hawaii time (HST, UTC−10
 1. **StrictMode stole focus on first load.** `<StrictMode>` runs effects twice in development. The page-change effect in `src/components/Layout.tsx` used a "first render" flag, so its second run moved focus into `<main>`, and the first Tab skipped the skip link. Fix: compare the pathname with the previous one (safe no matter how many times it runs). Caught by the browser check "skip link: first Tab stop".
 2. **`#` links and HashRouter.** `<a href="#projects">` would navigate to a route called `projects`. "Jump to projects", the skip link and in-note `#` links scroll with JavaScript instead (`src/lib/scrollToElement.ts`).
 3. **The timeline went stale when a card opened.** Expanding a card changes the timeline's height without any scroll event. A `ResizeObserver` in `src/hooks/useTimelineProgress.ts` now re-measures.
-4. **Hidden `<details>` marker.** Styling the "How it works" summary as `inline-flex` removed the browser's disclosure triangle; replaced with the same `+`/`−` circle the timeline uses.
+4. **Draft text was shipping to visitors.** At first, drafts were marked with a `draft: true` line and filtered out at runtime. Searching the production JavaScript showed the draft text was still inside it: hidden on the page, but downloadable by anyone. Drafts now live in `src/content/drafts/`, which `src/content/loadNotes.ts` reads only when `import.meta.env.DEV` is true; Vite drops that branch from production builds. Verified by searching `dist/` for each draft's title: 0 matches.
+5. **Hidden `<details>` marker.** Styling the "How it works" summary as `inline-flex` removed the browser's disclosure triangle; replaced with the same `+`/`−` circle the timeline uses.
 
 ## Check results (final run)
 
@@ -65,8 +66,9 @@ Chronological notes from building the site. Times are Hawaii time (HST, UTC−10
 | --- | --- |
 | `npm run lint` | 0 warnings, 0 errors |
 | `npm run typecheck` | 0 errors |
-| `npm test` | 2 files, 33 tests passed |
-| `npm run build` | success; `index` JS 322 KB (105 KB gzip), `NotePage` JS 165 KB (50 KB gzip, lazy), CSS 21 KB (5 KB gzip) |
+| `npm test` | 2 files, 35 tests passed |
+| `npm run build` | success; `index` JS 315 KB (102 KB gzip), `NotePage` JS 165 KB (50 KB gzip, lazy), CSS 21 KB (5 KB gzip); no draft text in `dist/` |
+| GitHub Actions on pull request #1 | build job passed (lint, typecheck, tests, build); deploy job skipped, as intended for pull requests |
 | `npm run format:check` | all files formatted |
 
 Browser checks (headless Chromium with Playwright, scripts kept outside the repo), run against both `npm run dev` and the production build (`npm run preview`):
@@ -87,4 +89,4 @@ Browser checks (headless Chromium with Playwright, scripts kept outside the repo
 
 - The live notes feed is empty until a note is published (`draft: false`).
 - Placeholders remain (listed in `00-start-here.md`); they are visible on the page by design.
-- GitHub Actions versions (`checkout@v4`, `setup-node@v4`, `upload-pages-artifact@v3`, `deploy-pages@v4`) should be checked against GitHub's current recommendations on first run.
+- The first Actions run warned that `checkout@v4` and `setup-node@v4` target the deprecated Node 20 runtime; both were moved to `@v5`. `upload-pages-artifact@v3` and `deploy-pages@v4` are unchanged; check for newer major versions if GitHub warns about them.

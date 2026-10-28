@@ -23,7 +23,7 @@ Open the address it prints (usually http://localhost:5173). The dev server shows
 | React + TypeScript + Vite project with lint, typecheck, test, build and format scripts | `package.json`, `vite.config.ts` |
 | Three-page navigation with `HashRouter`, skip link, focus management, 404 page | `src/App.tsx`, `src/components/Layout.tsx`, `src/components/SiteHeader.tsx` |
 | **My Journey**: headline, "Jump to projects", LinkedIn QR code + link, scroll-driven expandable timeline, 3 featured projects, "To be continued…" | `src/pages/JourneyPage.tsx`, `src/components/Timeline.tsx`, `src/components/MilestoneCard.tsx`, `src/components/ProjectCard.tsx`, `src/components/LinkedInQr.tsx` |
-| **What's on My Mind**: newest-first feed with type filters, eight topic folders with subtopics, note pages with related notes and projects, 4 starter notes (drafts) | `src/pages/MindPage.tsx`, `src/pages/TopicsPage.tsx`, `src/pages/TopicPage.tsx`, `src/pages/NotePage.tsx`, `src/content/notes/` |
+| **What's on My Mind**: newest-first feed with type filters, eight topic folders with subtopics, note pages with related notes and projects, 4 starter notes (drafts) | `src/pages/MindPage.tsx`, `src/pages/TopicsPage.tsx`, `src/pages/TopicPage.tsx`, `src/pages/NotePage.tsx`, `src/content/drafts/` |
 | **The Human Side**: intro, path, motivation, interests, contact | `src/pages/HumanSidePage.tsx`, `src/content/human.ts` |
 | Contact links (LinkedIn, GitHub, email) in the footer and on The Human Side | `src/components/ContactLinks.tsx` |
 | SEO and social preview tags, favicon, preview image | `index.html`, `public/` |
@@ -36,8 +36,9 @@ All run on the final code (details and earlier runs in `build-log.md`):
 
 - `npm run lint`: no warnings or errors.
 - `npm run typecheck`: no errors.
-- `npm test`: 33 tests passed (helpers in `src/lib/lib.test.ts`, content integrity in `src/content/content.test.ts`).
-- `npm run build`: succeeded. Main bundle about 105 KB gzipped; the note page's Markdown renderer loads separately (about 50 KB).
+- `npm test`: 35 tests passed (helpers in `src/lib/lib.test.ts`, content integrity in `src/content/content.test.ts`).
+- `npm run build`: succeeded. Main bundle about 102 KB gzipped; the note page's Markdown renderer loads separately (about 50 KB). No draft text is in the build.
+- GitHub Actions ran the same checks on pull request #1 and passed.
 - `npm run format:check`: all files formatted.
 - In a headless browser (phone and desktop sizes): timeline ink and dots follow scrolling, cards expand with mouse and keyboard, "Jump to projects" scrolls and moves focus, the skip link works, filters live in the URL and survive refresh, deep links and unknown addresses behave, no JavaScript errors. Repeated against the production build.
 - axe accessibility scan of every page, light and dark mode: no violations.
@@ -51,7 +52,7 @@ Not verified: the Groupz live demo (`group-map-share.onrender.com`) could not be
 
 - **Content is data, separate from components.** All text lives in `src/content/`, so you can update the site without touching React code.
 - **Placeholders instead of invented details.** Anything personal I could not verify is a dashed "To fill in" box with a writing prompt. Dates taken from GitHub commit history say "from GitHub activity, to confirm".
-- **Starter notes are drafts.** I wrote four notes to give the garden real structure, but they are not your words, so they stay hidden on the live site until you edit them and set `draft: false`. The reflection is only a template of prompts.
+- **Starter notes are drafts.** I wrote four notes to give the garden real structure, but they are not your words, so they live in `src/content/drafts/`, which the published build leaves out completely. Edit one and move it to `src/content/notes/` to publish it. The reflection is only a template of prompts.
 - **ApplyPeace is not featured.** It is a strong project, but its description involves H-1B sponsorship, which is personal. Add it to `src/content/projects.ts` if you would like it shown.
 - **Dependencies**, each for one job: `react-router` (pages), `react-markdown` + `remark-gfm` (safe Markdown rendering, no raw HTML), `qrcode` (QR encoding), `@fontsource/*` (fonts bundled with the site instead of loaded from Google), `vitest` (tests), `oxlint` (lint, from the Vite template), `prettier` (formatting).
 - **A hand-written front-matter reader** (`src/lib/frontmatter.ts`) instead of a YAML library: fewer dependencies, and small enough to read and test.
@@ -72,9 +73,9 @@ Not verified: the Groupz live demo (`group-map-share.onrender.com`) could not be
 
 ## Known issues and next steps
 
-1. Publish at least one real note (`learning/06-content.md`, "Try it yourself"); until then, the live notes feed shows an empty state.
+1. Publish at least one real note (`learning/06-content.md`, "Try it yourself"); until then, the live notes feed shows an empty state and the "Read" link on LyricLens is hidden.
 2. Fill the recruiter line and the Phase 1 placeholders above.
-3. The workflow uses `actions/checkout@v4`, `setup-node@v4`, `upload-pages-artifact@v3` and `deploy-pages@v4`; if GitHub reports a newer major version, update them.
+3. If GitHub Actions warns about an outdated action version, bump it in `.github/workflows/deploy.yml` (checkout and setup-node are already on `@v5`).
 4. Phase 2 from `plan.md`: an interactive playground, deeper timeline animations, more project–note connections.
 
 ## Your review route (about an hour)
@@ -92,7 +93,7 @@ One concept per stop. Each stop says what to read first and why.
    git commit -m "Add a milestone"
    git push
    ```
-   `src/content/notes/2026-10-27-saving-a-change-with-git.md` explains each of these commands.
+   `src/content/drafts/2026-10-27-saving-a-change-with-git.md` explains each of these commands.
 
 ## Learn tomorrow
 
