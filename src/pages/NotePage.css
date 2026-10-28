@@ -1,0 +1,37 @@
+.note-page__breadcrumb {
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.note-page__title {
+  max-width: 22ch;
+  font-size: clamp(2rem, 5.5vw, 3rem);
+}
+
+.note-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.note-page__tags {
+  margin-top: var(--space-6);
+}
+
+.note-page__section {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-rule);
+}
+
+.note-page__section h2 {
+  font-size: var(--text-lg);
+}
+
+.note-page__projects {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--text-width);
+}

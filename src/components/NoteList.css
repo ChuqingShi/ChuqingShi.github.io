@@ -1,0 +1,57 @@
+.note-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 44rem;
+}
+
+.note-item {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-rule);
+}
+
+.note-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.note-item__draft {
+  padding: 0 var(--space-2);
+  border: 1.5px dashed var(--color-pen);
+  border-radius: var(--radius);
+  color: var(--color-pen);
+  font-weight: 600;
+}
+
+.note-item__title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+/* The whole title is the link; keep it ink-colored until hovered. */
+.note-item__title a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.note-item__title a:hover {
+  color: var(--color-pen);
+  text-decoration: underline;
+}
+
+.note-item__summary {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-3);
+}
+
+.note-list__empty {
+  padding: var(--space-5);
+  border: 1px dashed var(--color-rule);
+  border-radius: var(--radius);
+  color: var(--color-ink-soft);
+  max-width: 44rem;
+}

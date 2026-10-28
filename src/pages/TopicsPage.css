@@ -1,0 +1,91 @@
+/*
+  Topic folders. Each folder has a small tab on its top edge (::before),
+  like a paper file folder.
+*/
+
+.folders {
+  display: grid;
+  gap: var(--space-6) var(--space-5);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.folder {
+  position: relative;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border: 1px solid var(--color-rule);
+  border-radius: 0 var(--radius) var(--radius) var(--radius);
+  background: var(--color-surface);
+}
+
+.folder::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -0.8rem;
+  width: 5.5rem;
+  height: 0.8rem;
+  border: 1px solid var(--color-rule);
+  border-bottom: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--color-surface);
+}
+
+/* Make the whole folder clickable while keeping one real link inside. */
+.folder__title a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.folder__title a::after {
+  content: '';
+  position: absolute;
+  inset: -0.8rem 0 0;
+}
+
+.folder:hover {
+  border-color: var(--color-pen);
+}
+
+.folder:hover .folder__title a {
+  color: var(--color-pen);
+}
+
+.folder:has(a:focus-visible) {
+  outline: 3px solid var(--color-pen);
+  outline-offset: 3px;
+}
+
+.folder__title a:focus-visible {
+  outline: none;
+}
+
+.folder__description {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.folder__count {
+  margin: 0;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-pen);
+}
+
+.folder__subtopics {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 40rem) {
+  .folders {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .folders {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,27 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__main {
+  flex: 1; /* pushes the footer to the bottom on short pages */
+}
+
+/* Invisible until focused with the Tab key, then pinned to the top-left. */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -4rem;
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-pen);
+  color: var(--color-paper);
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+  color: var(--color-paper);
+}

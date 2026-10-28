@@ -1,0 +1,81 @@
+.hero {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-7) var(--space-7);
+}
+
+.hero h1 {
+  max-width: 16ch; /* keeps the headline to a few balanced lines */
+  margin-bottom: var(--space-5);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space-8);
+    padding-block: var(--space-8) var(--space-7);
+  }
+}
+
+/*
+  Graph paper behind the journey: two repeating linear gradients draw thin
+  lines every 1.5rem, horizontally and vertically. No image file needed.
+*/
+.journey-graph {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  border-block: 1px solid var(--color-rule);
+}
+
+.journey__intro {
+  margin-bottom: var(--space-6);
+}
+
+.projects__heading {
+  scroll-margin-top: var(--space-5); /* breathing room above after jumping */
+}
+
+.projects__intro {
+  max-width: var(--text-width);
+  margin-bottom: var(--space-5);
+}
+
+.continued {
+  border-top: 1px solid var(--color-rule);
+}
+
+.continued__list {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.continued__list li {
+  padding-left: var(--space-4);
+  border-left: 2px dashed var(--color-pen);
+  max-width: var(--text-width);
+}
+
+.continued__list p {
+  margin-bottom: 0;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 48rem) {
+  .continued__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
