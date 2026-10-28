@@ -20,7 +20,7 @@ const filters: { type?: NoteType; label: string }[] = [
 ]
 
 export default function MindPage() {
-  usePageTitle("What's on my mind")
+  usePageTitle("What's on My Mind")
   const [searchParams] = useSearchParams()
   const typeParam = searchParams.get('type')
   // Ignore unknown values (e.g. a mistyped link) instead of showing nothing.

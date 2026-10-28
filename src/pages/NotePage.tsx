@@ -33,7 +33,7 @@ export default function NotePage() {
     <article className="container note-page">
       <header className="page-intro">
         <p className="note-page__breadcrumb">
-          <Link to="/mind">What's on my mind</Link>
+          <Link to="/mind">What's on My Mind</Link>
           {topic && (
             <>
               <span aria-hidden="true"> / </span>

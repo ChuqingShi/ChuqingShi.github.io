@@ -7,12 +7,12 @@ import './HumanSidePage.css'
 // Page 3: the person behind the projects.
 
 export default function HumanSidePage() {
-  usePageTitle('The human side')
+  usePageTitle('The Human Side')
 
   return (
     <div className="container">
       <div className="page-intro">
-        <h1>The human side</h1>
+        <h1>The Human Side</h1>
         <p className="lead">
           Hi, I'm Chuqing. This page is about the person behind the projects: where I come from, what keeps me
           going, and what I do away from the desk.

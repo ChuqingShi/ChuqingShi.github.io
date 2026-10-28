@@ -6,7 +6,7 @@ import './MindHeader.css'
 export default function MindHeader() {
   return (
     <div className="page-intro">
-      <h1>What's on my mind</h1>
+      <h1>What's on My Mind</h1>
       <p className="lead">
         Study notes, technical deep dives and reflections: a record of what I am learning and thinking about,
         kept as it grows.
