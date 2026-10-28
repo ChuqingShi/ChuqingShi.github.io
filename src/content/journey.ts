@@ -30,7 +30,7 @@ export const milestones: Milestone[] = [
         'Why you moved from research toward data science, and what the first months of learning looked like.',
     },
     highlights: [
-      'Public GitHub repositories from this period include forks of MIT Intro to Deep Learning and the fastai book, plus machine learning exercises.',
+      'Public GitHub repositories with activity in this period include forks of MIT Intro to Deep Learning and the fastai book, plus machine learning exercises.',
     ],
     links: [
       {

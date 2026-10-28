@@ -68,7 +68,7 @@ Not verified: the Groupz live demo (`group-map-share.onrender.com`) could not be
    - `src/content/projects.ts`: CaseBoard outcomes; confirm project dates.
    - `src/content/human.ts`: intro, what connects your path, motivation, interest stories.
 4. **Photos** for the interests on The Human Side: put them in `public/photos/` and add `photo: { src: '/photos/triathlon.jpg', alt: '…' }` to an interest in `src/content/human.ts`.
-5. **Check the wording** I used for facts: the hero paragraph in `src/pages/JourneyPage.tsx`, and "Mathematics PhD building with data science and AI" in `src/content/profile.ts` (your LinkedIn says Applied Mathematics; `plan.md` says Mathematics).
+5. **Check the wording** I used for facts: the hero paragraph in `src/pages/JourneyPage.tsx`, and "Mathematics PhD building with data science and AI" in `src/content/profile.ts` (the LinkedIn screenshot you sent shows "Applied Mathematics PhD"; `plan.md` says Mathematics).
 6. **Groupz hackathon:** `plan.md` lists it as a hackathon project, but I found no hackathon name. Add it to `src/content/journey.ts` if you want it shown.
 
 ## Known issues and next steps

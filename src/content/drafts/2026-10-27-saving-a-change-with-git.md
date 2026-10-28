@@ -33,7 +33,7 @@ This puts the file in the *staging area*: a draft of the next commit. You can st
 git commit -m "Add a milestone for the hackathons"
 ```
 
-A commit is a permanent, named snapshot of every staged file. The message is for future you: say what changed and, if it is not obvious, why.
+A commit is a permanent, named snapshot of the whole project, as it looks with your staged changes applied. The message is for future you: say what changed and, if it is not obvious, why.
 
 ## 4. Share it
 
@@ -45,4 +45,4 @@ Commits live only on your computer until you push them to GitHub. On this site, 
 
 ## Python analogy
 
-If a commit were a Python object, it would be an immutable snapshot plus a pointer to its parent commit: a linked list of versions of the project. A *branch* is just a movable name that points at one commit in that list.
+If a commit were a Python object, it would be an immutable snapshot plus a pointer to its parent commit: usually a simple chain of versions of the project (a merge commit has two parents, so in general it is a graph). A *branch* is just a movable name that points at one commit in that list.

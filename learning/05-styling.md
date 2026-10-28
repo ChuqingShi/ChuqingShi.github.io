@@ -36,4 +36,4 @@ Change the accent color. In `src/styles/tokens.css`, set `--color-pen` (light mo
 
 ## Verify
 
-`npm run dev`: links, buttons, the timeline ink and the focus ring all turn teal at once, because they all use `var(--color-pen)`. Press Tab a few times to see the focus ring. Check the hover color too: `--color-pen-strong` should be a darker shade of whatever you choose (try `#0a5252` for teal).
+`npm run dev` in light mode (dark mode sets its own `--color-pen` further down `tokens.css`): links, buttons, the timeline ink and the focus ring all turn teal at once, because they all use `var(--color-pen)`. Press Tab a few times to see the focus ring. Check the hover color too: `--color-pen-strong` should be a darker shade of whatever you choose (try `#0a5252` for teal).

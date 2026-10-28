@@ -23,8 +23,8 @@ export default function JourneyPage() {
           <h1 id="hero-heading">From theory to things that work.</h1>
           <p className="lead">
             I'm Chuqing Shi. I finished my PhD in Mathematics at UC San Diego in December 2024, and since then
-            I've been building with data science and AI: retrieval-augmented recommenders, live web apps and
-            hackathon prototypes. Come along for the journey.
+            I've been building with data science and AI: retrieval-augmented recommenders, a live group-map
+            app and hackathon prototypes. Come along for the journey.
           </p>
           <FillableText
             value={{ placeholder: 'One line for recruiters: the kind of role you are looking for.' }}

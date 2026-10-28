@@ -36,6 +36,8 @@ Chronological notes from building the site. Times are Hawaii time (HST, UTC−10
 | 18:46 | First milestone commits |
 | 18:50 | Social preview image, GitHub Actions workflow and Prettier formatting committed |
 | 18:55 | Learning guides `00`–`07` written; every referenced path checked |
+| 19:05 | Found and fixed draft text shipping in the production JavaScript (drafts moved to their own folder); pull request #1 opened, GitHub Actions checks passed |
+| 19:05 | Independent fact-check of all content and guides; 12 corrections applied (dates, wording, two guide steps); final checks passed and pushed |
 
 ## Decisions
 
@@ -59,6 +61,17 @@ Chronological notes from building the site. Times are Hawaii time (HST, UTC−10
 3. **The timeline went stale when a card opened.** Expanding a card changes the timeline's height without any scroll event. A `ResizeObserver` in `src/hooks/useTimelineProgress.ts` now re-measures.
 4. **Draft text was shipping to visitors.** At first, drafts were marked with a `draft: true` line and filtered out at runtime. Searching the production JavaScript showed the draft text was still inside it: hidden on the page, but downloadable by anyone. Drafts now live in `src/content/drafts/`, which `src/content/loadNotes.ts` reads only when `import.meta.env.DEV` is true; Vite drops that branch from production builds. Verified by searching `dist/` for each draft's title: 0 matches.
 5. **Hidden `<details>` marker.** Styling the "How it works" summary as `inline-flex` removed the browser's disclosure triangle; replaced with the same `+`/`−` circle the timeline uses.
+
+## Independent review
+
+A separate review pass, which had not seen the work being written, compared every claim on the site with `plan.md`, the project READMEs and Git histories, and checked that the learning guides match the code. Corrections applied:
+
+- Hero: "live web apps" became "a live group-map app" (only Groupz is live).
+- LyricLens: "demo videos in the README" (they are embedded there, not stored in the repo); popularity wording now follows the README; the chunking note states the real reason long sections are split (a line limit in the config), not a model limit.
+- Git starter note: a commit snapshots the whole project, not only the staged files; history is usually a chain, and merges make it a graph.
+- `02-react-components.md`: the exercise now says to destructure the new `startOpen` prop (without it, the typecheck fails).
+- `05-styling.md`: the teal exercise applies to light mode; dark mode has its own value.
+- Kept after checking: the Jan–Apr 2025 and Jun–Jul 2026 ranges come from the repositories' last-push dates on GitHub (`machine_learning_exercises`, the fastai and MIT forks; the Zoomcamp vector search and evaluation repos), and stay marked "to confirm".
 
 ## Check results (final run)
 

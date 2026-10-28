@@ -9,7 +9,7 @@ summary: In retrieval, a chunk is the unit of meaning the search can find. For s
 projects: [lyriclens]
 ---
 
-[LyricLens](/) recommends songs by comparing what you describe (a mood, a situation, a vibe) with what song lyrics actually say. Before any of that works, every song's lyrics have to be cut into pieces, or *chunks*, that get embedded and searched. How you cut them matters more than it first seems.
+[LyricLens](https://github.com/ChuqingShi/LyricLens) recommends songs by comparing what you describe (a mood, a situation, a vibe) with what song lyrics actually say. Before any of that works, every song's lyrics have to be cut into pieces, or *chunks*, that get embedded and searched. How you cut them matters more than it first seems.
 
 ## What a chunk is for
 
@@ -26,7 +26,7 @@ Songs carry meaning section by section. A verse often sets a scene and the choru
 ## What LyricLens does instead
 
 - **Keep natural sections.** The lyrics from LRCLIB already come split into sections, so LyricLens keeps those whenever it can.
-- **Split oversized sections carefully.** The embedding model (all-MiniLM-L6-v2) only reads a limited amount of text per input, so a very long section is split with a controlled fallback, which also avoids leaving a tiny leftover chunk at the end.
+- **Split oversized sections carefully.** A section longer than a set number of lines (configurable in the project) is split with a controlled fallback, which also avoids leaving a tiny leftover chunk at the end.
 - **Skip what cannot be chunked meaningfully.** A song with only a few lines is logged and left out of chunking rather than forced into a bad chunk.
 
 ## From chunks back to songs

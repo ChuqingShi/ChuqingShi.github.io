@@ -43,7 +43,7 @@ The timeline cards open and close, the journey line fills as you scroll, and the
 
 ## Try it yourself
 
-Make the first milestone start open. In `src/components/MilestoneCard.tsx`, add a prop `startOpen?: boolean` to `MilestoneCardProps`, use `useState(startOpen ?? false)`, and in `src/components/Timeline.tsx` pass `startOpen={index === 0}`.
+Make the first milestone start open. In `src/components/MilestoneCard.tsx`, add a prop `startOpen?: boolean` to `MilestoneCardProps`, add `startOpen` to the destructured props (`{ milestone, isReached, startOpen }`), use `useState(startOpen ?? false)`, and in `src/components/Timeline.tsx` pass `startOpen={index === 0}`.
 
 ## Verify
 
