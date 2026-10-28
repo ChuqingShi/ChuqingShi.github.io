@@ -3,7 +3,11 @@ import { usePageTitle } from '../hooks/usePageTitle'
 
 // Shown for any address that matches no route, and for unknown notes/topics.
 
-export default function NotFoundPage({ message = 'There is no page at this address.' }: { message?: string }) {
+export default function NotFoundPage({
+  message = 'There is no page at this address.',
+}: {
+  message?: string
+}) {
   usePageTitle('Page not found')
   return (
     <div className="container page-intro">

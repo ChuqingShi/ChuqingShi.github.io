@@ -16,20 +16,36 @@ export const topics: Topic[] = [
       { id: 'docker', label: 'Docker' },
     ],
   },
-  { id: 'leetcode', label: 'LeetCode', description: 'Problems worked through, and the patterns behind them.' },
+  {
+    id: 'leetcode',
+    label: 'LeetCode',
+    description: 'Problems worked through, and the patterns behind them.',
+  },
   {
     id: 'quant-finance-probability',
     label: 'Quant, Finance & Probability',
     description: 'Markets, risk, and the probability underneath them.',
   },
-  { id: 'ml-algorithms', label: 'ML & Algorithms', description: 'Models and algorithms, from first principles to practice.' },
-  { id: 'ds-statistics', label: 'DS & Statistics', description: 'Data science methods and the statistics that keep them honest.' },
+  {
+    id: 'ml-algorithms',
+    label: 'ML & Algorithms',
+    description: 'Models and algorithms, from first principles to practice.',
+  },
+  {
+    id: 'ds-statistics',
+    label: 'DS & Statistics',
+    description: 'Data science methods and the statistics that keep them honest.',
+  },
   {
     id: 'llms-ai-agents',
     label: 'LLMs, AI & Agents',
     description: 'Retrieval, embeddings, agents and evaluation.',
   },
-  { id: 'computer-vision', label: 'Computer Vision', description: 'Images, video, and models that work with them.' },
+  {
+    id: 'computer-vision',
+    label: 'Computer Vision',
+    description: 'Images, video, and models that work with them.',
+  },
   {
     id: 'mathematics-research',
     label: 'Mathematics & Research',

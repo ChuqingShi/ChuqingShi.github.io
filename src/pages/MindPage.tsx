@@ -32,30 +32,33 @@ export default function MindPage() {
       <MindHeader />
 
       <h2 className="visually-hidden">Notes, newest first</h2>
-      <ul className="filter-bar" aria-label="Show">
-        {filters.map((filter) => (
-          <li key={filter.label}>
-            <Link
-              to={filter.type ? `/mind?type=${filter.type}` : '/mind'}
-              aria-current={filter.type === activeType ? 'true' : undefined}
-            >
-              {filter.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {/* Filters only make sense once there is something to filter. */}
+      {notes.length > 0 && (
+        <ul className="filter-bar" aria-label="Show">
+          {filters.map((filter) => (
+            <li key={filter.label}>
+              <Link
+                to={filter.type ? `/mind?type=${filter.type}` : '/mind'}
+                aria-current={filter.type === activeType ? 'true' : undefined}
+              >
+                {filter.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
 
       <NoteList
         notes={visible}
         emptyMessage={
-          activeType
-            ? `No ${noteTypeLabels[activeType].toLowerCase()}s yet. Try another filter, or browse by topic.`
-            : (
-                <>
-                  The first notes are being written. <Link to="/mind/topics">Browse the topics</Link> to
-                  see what is coming.
-                </>
-              )
+          activeType ? (
+            `No ${noteTypeLabels[activeType].toLowerCase()}s yet. Try another filter, or browse by topic.`
+          ) : (
+            <>
+              The first notes are being written. <Link to="/mind/topics">Browse the topics</Link> to see what
+              is coming.
+            </>
+          )
         }
       />
     </div>

@@ -12,8 +12,7 @@ export const projects: Project[] = [
     id: 'lyriclens',
     title: 'LyricLens',
     dates: { start: '2026-07', end: '2026-09', needsConfirming: true },
-    tagline:
-      'Song recommendations from how you feel, matched on what the lyrics actually say.',
+    tagline: 'Song recommendations from how you feel, matched on what the lyrics actually say.',
     problem:
       'Search a streaming app for "stressed" and you tend to get songs about heartbreak. LyricLens matches a described mood, situation or vibe against the meaning of song lyrics, rather than genre or keywords.',
     approach: [
@@ -47,8 +46,7 @@ export const projects: Project[] = [
       'An assistant built on the Claude API answers questions, and falls back to keyword rules when no API key is set.',
     ],
     outcomes: {
-      placeholder:
-        'What happened at the hackathon? Team, result or feedback, if you would like to share it.',
+      placeholder: 'What happened at the hackathon? Team, result or feedback, if you would like to share it.',
     },
     tech: ['Python', 'FastAPI', 'SQLite', 'Next.js', 'Claude API'],
     status: 'local',

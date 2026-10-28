@@ -8,8 +8,8 @@ export default function MindHeader() {
     <div className="page-intro">
       <h1>What's on my mind</h1>
       <p className="lead">
-        Study notes, technical deep dives and reflections: a record of what I am learning and
-        thinking about, kept as it grows.
+        Study notes, technical deep dives and reflections: a record of what I am learning and thinking about,
+        kept as it grows.
       </p>
       <nav aria-label="Browse notes">
         <ul className="view-switch">

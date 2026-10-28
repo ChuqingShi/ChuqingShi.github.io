@@ -14,8 +14,8 @@ export default function HumanSidePage() {
       <div className="page-intro">
         <h1>The human side</h1>
         <p className="lead">
-          Hi, I'm Chuqing. This page is about the person behind the projects: where I come from,
-          what keeps me going, and what I do away from the desk.
+          Hi, I'm Chuqing. This page is about the person behind the projects: where I come from, what keeps me
+          going, and what I do away from the desk.
         </p>
         <FillableText value={intro} />
       </div>

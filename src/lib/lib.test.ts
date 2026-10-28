@@ -21,7 +21,16 @@ import type { Note } from '../content/types'
 describe('parseFrontmatter', () => {
   it('reads text, quoted text, lists and booleans', () => {
     const { data, body } = parseFrontmatter(
-      ['---', 'title: "Hello: world"', 'tags: [a, b]', 'empty: []', 'draft: true', '---', '', 'Body text'].join('\n'),
+      [
+        '---',
+        'title: "Hello: world"',
+        'tags: [a, b]',
+        'empty: []',
+        'draft: true',
+        '---',
+        '',
+        'Body text',
+      ].join('\n'),
     )
     expect(data).toEqual({ title: 'Hello: world', tags: ['a', 'b'], empty: [], draft: true })
     expect(body).toBe('Body text')
@@ -73,7 +82,13 @@ describe('notes', () => {
 
   it('parses a valid note with defaults for optional fields', () => {
     const parsed = parseNote('./notes/2026-10-27-a-note.md', valid)
-    expect(parsed).toMatchObject({ slug: '2026-10-27-a-note', type: 'deep-dive', draft: false, tags: [], projects: [] })
+    expect(parsed).toMatchObject({
+      slug: '2026-10-27-a-note',
+      type: 'deep-dive',
+      draft: false,
+      tags: [],
+      projects: [],
+    })
   })
 
   it('rejects bad dates, unknown types and missing titles', () => {
@@ -110,7 +125,10 @@ describe('notes', () => {
   })
 
   it('counts notes per topic', () => {
-    expect(countByTopic([note({}), note({}), note({ topic: 'leetcode' })])).toEqual({ 'tech-stack': 2, leetcode: 1 })
+    expect(countByTopic([note({}), note({}), note({ topic: 'leetcode' })])).toEqual({
+      'tech-stack': 2,
+      leetcode: 1,
+    })
   })
 
   it('finds related notes by topic and shared tags, never the note itself', () => {

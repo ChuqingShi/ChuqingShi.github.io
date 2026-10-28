@@ -22,9 +22,9 @@ export default function JourneyPage() {
         <div className="hero__text">
           <h1 id="hero-heading">From theory to things that work.</h1>
           <p className="lead">
-            I'm Chuqing Shi. I finished my PhD in Mathematics at UC San Diego in December 2024, and
-            since then I've been building with data science and AI: retrieval-augmented
-            recommenders, live web apps and hackathon prototypes. Come along for the journey.
+            I'm Chuqing Shi. I finished my PhD in Mathematics at UC San Diego in December 2024, and since then
+            I've been building with data science and AI: retrieval-augmented recommenders, live web apps and
+            hackathon prototypes. Come along for the journey.
           </p>
           <FillableText
             value={{ placeholder: 'One line for recruiters: the kind of role you are looking for.' }}
@@ -45,9 +45,7 @@ export default function JourneyPage() {
       <section className="journey-graph" aria-labelledby="journey-heading">
         <div className="container section">
           <h2 id="journey-heading">The journey so far</h2>
-          <p className="muted journey__intro">
-            Oldest first. Open any milestone for the story behind it.
-          </p>
+          <p className="muted journey__intro">Oldest first. Open any milestone for the story behind it.</p>
           <Timeline milestones={milestones} />
         </div>
       </section>
@@ -57,8 +55,8 @@ export default function JourneyPage() {
           Featured projects
         </h2>
         <p className="muted projects__intro">
-          Projects marked live open in your browser. The others run locally; each repository explains
-          how to run it.
+          Projects marked live open in your browser. The others run locally; each repository explains how to
+          run it.
         </p>
         {projects.map((project) => (
           <ProjectCard

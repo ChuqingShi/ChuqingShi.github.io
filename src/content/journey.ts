@@ -24,8 +24,7 @@ export const milestones: Milestone[] = [
     id: 'into-data-science',
     dates: { start: '2025-01', end: '2025-04', needsConfirming: true },
     title: 'Into data science and applied machine learning',
-    summary:
-      'Working through deep learning and machine learning material in public on GitHub.',
+    summary: 'Working through deep learning and machine learning material in public on GitHub.',
     story: {
       placeholder:
         'Why you moved from research toward data science, and what the first months of learning looked like.',
@@ -91,8 +90,7 @@ export const milestones: Milestone[] = [
     summary:
       'A song recommender that matches how you feel against what lyrics actually say, using retrieval-augmented generation.',
     story: {
-      placeholder:
-        'Why you built it, the hardest problem along the way, and what you would do differently.',
+      placeholder: 'Why you built it, the hardest problem along the way, and what you would do differently.',
     },
     projectIds: ['lyriclens'],
   },
@@ -100,8 +98,7 @@ export const milestones: Milestone[] = [
     id: 'hackathons',
     dates: { start: '2026-10', needsConfirming: true },
     title: 'Hackathons: CaseBoard and Groupz',
-    summary:
-      'Two builds in one month: a role-aware legal case dashboard and a live group map.',
+    summary: 'Two builds in one month: a role-aware legal case dashboard and a live group map.',
     story: {
       placeholder:
         'What the hackathons were like, who you built with, and what you took away from building fast.',
